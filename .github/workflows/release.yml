@@ -1,0 +1,17 @@
+on:
+  workflow_run:
+    workflows: ["Test"]
+    types: [completed]
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.ref == 'refs/heads/master' }}
+    steps:
+      - uses: actions/checkout@master
+      - name: Publish to Dockerhub
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: photonquantum/jcss
+          username: ${{ secrets.PQ_DOCKER_USERNAME }}
+          password: ${{ secrets.PQ_DOCKER_PASSWORD }}

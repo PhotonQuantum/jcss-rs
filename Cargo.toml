@@ -1,0 +1,2 @@
+[workspace]
+members = ["jcss", "jcss-cli", "jcss-web"]
