@@ -2,11 +2,10 @@
 name = "jcss-cli"
 version = "0.1.0"
 edition = "2021"
-
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-clap = "3.0.0-beta.5"
 anyhow = "1.0"
-jcss = { version = "0.1", path = "../jcss" }
+clap = "3.0.0-beta.5"
 image = "0.23"
+jcss = { version = "0.1", path = "../jcss" }

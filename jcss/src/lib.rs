@@ -11,8 +11,6 @@ use tract_onnx::prelude::{
     TypedFact, TypedModel, TypedOp,
 };
 
-mod error;
-
 pub struct Predictor {
     model: RunnableModel<TypedFact, Box<dyn TypedOp>, TypedModel>,
 }

@@ -2,13 +2,11 @@
 name = "jcss"
 version = "0.1.0"
 edition = "2021"
-
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tract-onnx = "0.15"
 image = "0.23"
-thiserror = "1.0"
 ndarray = "0.15"
 nshare = { version = "0.8", default-features = false, features = ["ndarray", "image"] }
 tracing = "0.1"
+tract-onnx = "0.15"
