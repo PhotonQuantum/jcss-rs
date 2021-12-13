@@ -14,5 +14,5 @@ jcss = { version = "0.1", path = "../jcss" }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tracing = "0.1"
-tracing-actix-web = "0.5.0-beta.3"
+tracing-actix-web = "0.5.0-beta.4"
 tracing-subscriber = "0.3"
