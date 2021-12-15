@@ -67,7 +67,7 @@ async fn predict(mut payload: Multipart, predictor: web::Data<Predictor>) -> imp
     let result = web::block(move || predictor.predict(image))
         .await
         .expect("thread pool is present");
-    let elapsed_time = (Instant::now() - time_begin).as_millis();
+    let elapsed_time = time_begin.elapsed().as_millis();
 
     match result {
         Ok(s) => HttpResponse::Ok().json(Response::new(

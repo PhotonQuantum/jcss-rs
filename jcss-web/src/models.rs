@@ -1,10 +1,4 @@
-use serde::{Deserialize, Serialize};
-
-#[derive(Deserialize)]
-pub struct InputForm {
-    // pub image: Option<Vec<u8>>
-    pub image: Vec<u8>,
-}
+use serde::Serialize;
 
 #[derive(Serialize)]
 #[serde(rename_all = "lowercase")]
