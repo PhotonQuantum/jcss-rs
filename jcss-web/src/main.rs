@@ -60,7 +60,7 @@ async fn predict(mut payload: Multipart, predictor: web::Data<Predictor>) -> imp
     } else {
         return HttpResponse::BadRequest().json(Response::new(
             Status::Fail,
-            Data::new(json!({"image": "An captcha image is required."})),
+            Data::new(json!({"image": "A captcha image is required."})),
         ));
     };
 
