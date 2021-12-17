@@ -3,7 +3,10 @@ on:
     workflows: ["Test"]
     types: [completed]
 
-name: Release
+name: Release & Deploy
+
+env:
+  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
 jobs:
   on-success:
@@ -18,3 +21,7 @@ jobs:
           name: photonquantum/jcss
           username: ${{ secrets.PQ_DOCKER_USERNAME }}
           password: ${{ secrets.PQ_DOCKER_PASSWORD }}
+      - name: Deploy to fly.io
+        uses: superfly/flyctl-actions@1.1
+        with:
+          args: "deploy"

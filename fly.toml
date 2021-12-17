@@ -1,0 +1,37 @@
+# fly.toml file generated for jcss on 2021-12-17T08:59:24+08:00
+
+app = "jcss"
+
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+[build]
+image = "photonquantum/jcss:latest"
+
+[experimental]
+auto_rollback = true
+
+[[services]]
+internal_port = 8000
+protocol = "tcp"
+
+[services.concurrency]
+hard_limit = 25
+soft_limit = 20
+type = "connections"
+
+[[services.ports]]
+handlers = ["http"]
+port = 80
+
+[[services.ports]]
+handlers = ["tls", "http"]
+port = 443
+
+[[services.http_checks]]
+grace_period = "5s"
+interval = "15s"
+timeout = "2s"
+method = "get"
+path = "/"
+protocol = "http"
