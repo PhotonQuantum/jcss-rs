@@ -26,17 +26,15 @@ async fn index() -> impl Responder {
 #[post("/")]
 async fn predict(mut payload: Multipart, predictor: web::Data<Predictor>) -> impl Responder {
     let mut image: Option<Vec<u8>> = None;
-    while let Some(item) = payload.next().await {
-        if let Ok(field) = item {
-            if field.name() == "image" {
-                image = field
-                    .try_fold(vec![], |mut acc, x| async move {
-                        acc.extend(&*x);
-                        Ok(acc)
-                    })
-                    .await
-                    .ok();
-            }
+    while let Some(Ok(field)) = payload.next().await {
+        if field.name() == "image" {
+            image = field
+                .try_fold(vec![], |mut acc, x| async move {
+                    acc.extend(&*x);
+                    Ok(acc)
+                })
+                .await
+                .ok();
         }
     }
 
