@@ -6,7 +6,7 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0"
-clap = { version = "3.0.14", features = ["derive"] }
+clap = { version = "3.1.0", features = ["derive"] }
 image = "0.23"
 jcss = { version = "0.1", path = "../jcss" }
 
