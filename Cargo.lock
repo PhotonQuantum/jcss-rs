@@ -1046,11 +1046,25 @@ dependencies = [
  "gif",
  "jpeg-decoder",
  "num-iter",
- "num-rational",
+ "num-rational 0.3.2",
  "num-traits",
  "png",
  "scoped_threadpool",
  "tiff",
+]
+
+[[package]]
+name = "image"
+version = "0.24.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "db207d030ae38f1eb6f240d5a1c1c88ff422aa005d10f8c6c6fc5e75286ab30e"
+dependencies = [
+ "bytemuck",
+ "byteorder",
+ "color_quant",
+ "num-iter",
+ "num-rational 0.4.0",
+ "num-traits",
 ]
 
 [[package]]
@@ -1107,7 +1121,7 @@ checksum = "1aab8fc367588b89dcee83ab0fd66b72b50b72fa1904d7095045ace2b0c81c35"
 name = "jcss"
 version = "0.1.0"
 dependencies = [
- "image",
+ "image 0.23.14",
  "ndarray",
  "nshare",
  "tracing",
@@ -1121,7 +1135,7 @@ dependencies = [
  "anyhow",
  "assert_cmd",
  "clap",
- "image",
+ "image 0.23.14",
  "jcss",
  "tempfile",
 ]
@@ -1136,7 +1150,7 @@ dependencies = [
  "attohttpc",
  "bytes",
  "futures-util",
- "image",
+ "image 0.23.14",
  "jcss",
  "serde",
  "serde_json",
@@ -1534,11 +1548,11 @@ dependencies = [
 
 [[package]]
 name = "nshare"
-version = "0.8.0"
+version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2b72f8d3140d65cbd1dd0fdd89379f9f1f2035ae890db420b3a9489520a1c1ce"
+checksum = "4447657cd40e3107416ec4f2ac3e61a18781b00061789e3b8f4bbcbccb26c4c6"
 dependencies = [
- "image",
+ "image 0.24.1",
  "ndarray",
 ]
 
@@ -1597,6 +1611,17 @@ name = "num-rational"
 version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "12ac428b1cb17fce6f731001d307d351ec70a6d202fc2e60f7d4c5e42d8f4f07"
+dependencies = [
+ "autocfg 1.0.1",
+ "num-integer",
+ "num-traits",
+]
+
+[[package]]
+name = "num-rational"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d41702bd167c2df5520b384281bc111a4b5efcf7fbc4c9c222c815b07e0a6a6a"
 dependencies = [
  "autocfg 1.0.1",
  "num-integer",
