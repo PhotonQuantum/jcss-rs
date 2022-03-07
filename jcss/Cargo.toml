@@ -9,4 +9,4 @@ image = "0.23"
 ndarray = "0.15"
 nshare = { version = "0.8", default-features = false, features = ["ndarray", "image"] }
 tracing = "0.1"
-tract-onnx = "0.15"
+tract-onnx = "0.16"
