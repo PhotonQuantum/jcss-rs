@@ -1,8 +1,8 @@
 use std::fmt::{Display, Formatter};
 use std::io::Read;
 
-use image::DynamicImage;
 use image::imageops::FilterType;
+use image::DynamicImage;
 use ndarray::{Array4, Axis};
 use nshare::ToNdarray2;
 use tracing::debug;
