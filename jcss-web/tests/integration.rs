@@ -11,7 +11,6 @@ use serde_json::{json, Value};
 use tempfile::NamedTempFile;
 
 const MODEL: &[u8] = include_bytes!("../../model.onnx");
-const CAPTCHA: &[u8] = include_bytes!("../../captcha.jpg");
 
 fn get_bind_addr() -> SocketAddr {
     let socket = UdpSocket::bind("127.0.0.1:0").expect("to bind");
@@ -50,7 +49,8 @@ fn tests() {
 
     ready_rx.recv().expect("server to be ready");
 
-    must_recognize(bind_addr);
+    must_recognize(bind_addr, include_bytes!("../../captcha.jpg"), "gbmke");
+    must_recognize(bind_addr, include_bytes!("../../captcha.jpeg"), "tbrxm");
     must_reject_missing_image(bind_addr);
     must_reject_invalid_image(bind_addr);
 
@@ -58,9 +58,9 @@ fn tests() {
     handle.join().expect("to join");
 }
 
-fn must_recognize(bind_addr: SocketAddr) {
+fn must_recognize(bind_addr: SocketAddr, image: &[u8], expected: &str) {
     let payload = MultipartBuilder::new()
-        .with_file(MultipartFile::new("image", CAPTCHA))
+        .with_file(MultipartFile::new("image", image))
         .build()
         .expect("to construct");
 
@@ -77,14 +77,17 @@ fn must_recognize(bind_addr: SocketAddr) {
     );
     assert_eq!(
         body.pointer("/data/prediction").expect("to_present"),
-        &json!("gbmke")
+        &json!(expected)
     );
     body.pointer("/data/elapsed_time").expect("to_present");
 }
 
 fn must_reject_missing_image(bind_addr: SocketAddr) {
     let payload = MultipartBuilder::new()
-        .with_file(MultipartFile::new("boom", CAPTCHA))
+        .with_file(MultipartFile::new(
+            "boom",
+            include_bytes!("../../captcha.jpg"),
+        ))
         .build()
         .expect("to construct");
 

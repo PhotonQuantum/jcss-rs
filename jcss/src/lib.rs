@@ -2,6 +2,7 @@ use std::fmt::{Display, Formatter};
 use std::io::Read;
 
 use image::DynamicImage;
+use image::imageops::FilterType;
 use ndarray::{Array4, Axis};
 use nshare::ToNdarray2;
 use tracing::debug;
@@ -60,7 +61,8 @@ impl Predictor {
     }
     pub fn predict(&self, input: DynamicImage) -> TractResult<String> {
         debug!("preprocessing image");
-        let grayscale = input.into_luma8();
+        let resized = input.resize_exact(100, 40, FilterType::Lanczos3);
+        let grayscale = resized.into_luma8();
         let binarized = grayscale.into_ndarray2();
         let normalized: Array4<f32> = binarized
             .map(|pixel| if *pixel <= 156 { 0. } else { 1. })
