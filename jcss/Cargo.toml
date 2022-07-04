@@ -12,4 +12,4 @@ tracing = "0.1"
 tract-onnx = "0.17"
 
 [dev-dependencies]
-rstest = "0.14"
+rstest = "0.15"
