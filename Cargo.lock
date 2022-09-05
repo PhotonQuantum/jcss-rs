@@ -502,15 +502,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "cmake"
-version = "0.1.48"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e8ad8cef104ac57b68b89df3208164d228503abbdce70f6880ffa3d970e7443a"
-dependencies = [
- "cc",
-]
-
-[[package]]
 name = "color_quant"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -771,12 +762,6 @@ name = "firestorm"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4d3d6188b8804df28032815ea256b6955c9625c24da7525f387a7af02fbb8f01"
-
-[[package]]
-name = "fixedbitset"
-version = "0.4.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "279fb028e20b3c4c320317955b77c5e0c9701f05a1d309905d6fc702cdc5053e"
 
 [[package]]
 name = "flate2"
@@ -1429,12 +1414,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "multimap"
-version = "0.8.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e5ce46fe64a9d73be07dcbe690a38ce1b293be448fd8ce1e6c1b8062c9f72c6a"
-
-[[package]]
 name = "multipart"
 version = "0.18.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1665,16 +1644,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "petgraph"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4a13a2fa9d0b63e5f22328828741e523766fff0ee9e779316902290dff3f824f"
-dependencies = [
- "fixedbitset",
- "indexmap",
-]
-
-[[package]]
 name = "pin-project"
 version = "1.0.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1816,57 +1785,25 @@ dependencies = [
 
 [[package]]
 name = "prost"
-version = "0.10.4"
+version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "71adf41db68aa0daaefc69bb30bcd68ded9b9abaad5d1fbb6304c4fb390e083e"
+checksum = "399c3c31cdec40583bb68f0b18403400d01ec4289c383aa047560439952c4dd7"
 dependencies = [
  "bytes",
  "prost-derive",
 ]
 
 [[package]]
-name = "prost-build"
-version = "0.10.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8ae5a4388762d5815a9fc0dea33c56b021cdc8dde0c55e0c9ca57197254b0cab"
-dependencies = [
- "bytes",
- "cfg-if",
- "cmake",
- "heck",
- "itertools",
- "lazy_static",
- "log",
- "multimap",
- "petgraph",
- "prost",
- "prost-types",
- "regex",
- "tempfile",
- "which",
-]
-
-[[package]]
 name = "prost-derive"
-version = "0.10.1"
+version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7b670f45da57fb8542ebdbb6105a925fe571b67f9e7ed9f47a06a84e72b4e7cc"
+checksum = "7345d5f0e08c0536d7ac7229952590239e77abf0a0100a1b1d890add6ea96364"
 dependencies = [
  "anyhow",
  "itertools",
  "proc-macro2",
  "quote",
  "syn",
-]
-
-[[package]]
-name = "prost-types"
-version = "0.10.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2d0a014229361011dc8e69c8a1ec6c2e8d0f2af7c91e3ea3f5b2170298461e68"
-dependencies = [
- "bytes",
- "prost",
 ]
 
 [[package]]
@@ -2432,9 +2369,9 @@ dependencies = [
 
 [[package]]
 name = "tract-core"
-version = "0.17.4"
+version = "0.17.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "84f8722421d649ece961768183d7414acbe92893f89483b3ad7a75d70699154f"
+checksum = "91554928c259b390abfba00628a88d6874d933ed9e75050f445fb5abce726016"
 dependencies = [
  "anyhow",
  "bit-set",
@@ -2455,9 +2392,9 @@ dependencies = [
 
 [[package]]
 name = "tract-data"
-version = "0.17.4"
+version = "0.17.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c16dcc76cc9ad885393aa811a9ebe75b6dc0eafca10c02597dd2bf02608fa599"
+checksum = "3804a3a1269dd10123c8a24277e13f72ca9ed66c7ce78a37562a7874bfc16300"
 dependencies = [
  "anyhow",
  "educe",
@@ -2475,9 +2412,9 @@ dependencies = [
 
 [[package]]
 name = "tract-hir"
-version = "0.17.4"
+version = "0.17.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6530673e8352dbbd6faf9316329fe145222b25b96cb94108001e3c1f4747385f"
+checksum = "990b0f75d8e2017f3451c34813265f843b2266a03173263acad5c3083441d852"
 dependencies = [
  "derive-new",
  "educe",
@@ -2487,9 +2424,9 @@ dependencies = [
 
 [[package]]
 name = "tract-linalg"
-version = "0.17.4"
+version = "0.17.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b5fce91be0a5f341208dc7be896fbd9c146e1fa5ebf980b51af808a4da9345de"
+checksum = "47687ef1a32ec3f501c778db5b3104a9a0dbcbf0788794c5e583a26723856ef1"
 dependencies = [
  "cc",
  "derive-new",
@@ -2512,9 +2449,9 @@ dependencies = [
 
 [[package]]
 name = "tract-nnef"
-version = "0.17.4"
+version = "0.17.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "26a0e286bc5275a21f5123b20002fee38ccf00a5d887bc4e444adefe5b9dc1cb"
+checksum = "4b7ac55cef24d6b189aa4627419e78045c1b6c23be93aded6017b221a4af0fd8"
 dependencies = [
  "byteorder",
  "flate2",
@@ -2527,9 +2464,9 @@ dependencies = [
 
 [[package]]
 name = "tract-onnx"
-version = "0.17.4"
+version = "0.17.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d13efee8c7ae3c5921a7bdf4571858987ceadc04f1d1176c5c958335dda78b3d"
+checksum = "df1a4f971a74597e572e45cb45a4e560b34a3bea5626b2b132804e7f9fe3093e"
 dependencies = [
  "bytes",
  "derive-new",
@@ -2538,7 +2475,6 @@ dependencies = [
  "mapr",
  "num-integer",
  "prost",
- "prost-build",
  "smallvec",
  "tract-hir",
  "tract-nnef",
@@ -2547,9 +2483,9 @@ dependencies = [
 
 [[package]]
 name = "tract-onnx-opl"
-version = "0.17.4"
+version = "0.17.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2b8fe46ca0475facfff8babb3a3d7279c6b4664f31ba871e42ea7ce23070dca8"
+checksum = "2dd49c557bd57d63c6486f6bdb96cbb81144167fd891bc51739173b8c825c1de"
 dependencies = [
  "educe",
  "getrandom",
@@ -2745,17 +2681,6 @@ name = "weezl"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d8b77fdfd5a253be4ab714e4ffa3c49caf146b4de743e97510c0656cf90f1e8e"
-
-[[package]]
-name = "which"
-version = "4.2.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2a5a7e487e921cf220206864a94a89b6c6905bfc19f1057fa26a4cb360e5c1d2"
-dependencies = [
- "either",
- "lazy_static",
- "libc",
-]
 
 [[package]]
 name = "winapi"
