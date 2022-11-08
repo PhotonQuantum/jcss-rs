@@ -6,10 +6,12 @@ This is the Rust version of [JCSS](https://github.com/PhotonQuantum/jcss).
 
 ## Usage
 
+![captcha](./captcha.jpeg)
+
 ``` shell script
 $ docker-compose up -d
-$ curl -F "image=@captcha.jpg" localhost:8000
-{"status":"success","data":{"prediction":"gbmke","elapsed_time":40}}
+$ curl -F "image=@captcha.jpeg" localhost:8000
+{"status":"success","data":{"prediction":"tbrxm","elapsed_time":40}}
 ```
 
 ## License

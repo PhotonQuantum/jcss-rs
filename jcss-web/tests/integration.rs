@@ -49,7 +49,6 @@ fn tests() {
 
     ready_rx.recv().expect("server to be ready");
 
-    must_recognize(bind_addr, include_bytes!("../../captcha.jpg"), "gbmke");
     must_recognize(bind_addr, include_bytes!("../../captcha.jpeg"), "tbrxm");
     must_reject_missing_image(bind_addr);
     must_reject_invalid_image(bind_addr);
@@ -86,7 +85,7 @@ fn must_reject_missing_image(bind_addr: SocketAddr) {
     let payload = MultipartBuilder::new()
         .with_file(MultipartFile::new(
             "boom",
-            include_bytes!("../../captcha.jpg"),
+            include_bytes!("../../captcha.jpeg"),
         ))
         .build()
         .expect("to construct");

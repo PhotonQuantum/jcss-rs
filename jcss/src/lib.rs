@@ -1,7 +1,6 @@
 use std::fmt::{Display, Formatter};
 use std::io::Read;
 
-use image::imageops::FilterType;
 use image::DynamicImage;
 use ndarray::{Array4, Axis};
 use nshare::ToNdarray2;
@@ -51,7 +50,7 @@ impl Predictor {
             .with_input_fact(
                 0,
                 // TODO can this be u8?
-                InferenceFact::dt_shape(f32::datum_type(), tvec!(1, 1, 40, 100)),
+                InferenceFact::dt_shape(f32::datum_type(), tvec!(1, 1, 40, 110)),
             )?
             .into_optimized()?
             .into_runnable()?;
@@ -61,8 +60,7 @@ impl Predictor {
     }
     pub fn predict(&self, input: DynamicImage) -> TractResult<String> {
         debug!("preprocessing image");
-        let resized = input.resize_exact(100, 40, FilterType::Lanczos3);
-        let grayscale = resized.into_luma8();
+        let grayscale = input.into_luma8();
         let binarized = grayscale.into_ndarray2();
         let normalized: Array4<f32> = binarized
             .map(|pixel| if *pixel <= 156 { 0. } else { 1. })

@@ -5,7 +5,6 @@ use rstest::rstest;
 use jcss::Predictor;
 
 #[rstest]
-#[case(include_bytes!("../../captcha.jpg"), "gbmke")]
 #[case(include_bytes!("../../captcha.jpeg"), "tbrxm")]
 fn must_recognize(#[case] image: &[u8], #[case] expected: &str) {
     let predictor =
