@@ -5,7 +5,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-actix-multipart = "0.5.0"
+actix-multipart = "0.6.0"
 actix-web = "4.3.1"
 bytes = "1.4"
 futures-util = "0.3"
