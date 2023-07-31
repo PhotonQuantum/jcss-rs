@@ -19,5 +19,5 @@ tracing-subscriber = "0.3"
 
 [dev-dependencies]
 assert_cmd = "2.0"
-attohttpc = { version = "0.25.0", default-features = false, features=["multipart-form", "json"] }
+attohttpc = { version = "0.26.0", default-features = false, features=["multipart-form", "json"] }
 tempfile = "3.7"
