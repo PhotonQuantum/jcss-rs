@@ -13,4 +13,4 @@ jcss = { version = "0.1", path = "../jcss" }
 [dev-dependencies]
 assert_cmd = "2.0"
 rstest = "0.17"
-tempfile = "3.9"
+tempfile = "3.10"
