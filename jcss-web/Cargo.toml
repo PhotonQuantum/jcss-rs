@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 actix-multipart = "0.6.1"
 actix-web = "4.5.1"
-bytes = "1.5"
+bytes = "1.6"
 futures-util = "0.3"
 image = "0.24"
 jcss = { version = "0.1", path = "../jcss" }
